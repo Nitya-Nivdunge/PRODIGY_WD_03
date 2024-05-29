@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic Tac Toe</title>
+    <link rel="stylesheet" href="./assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./assets/css/aos.css">
+    <script src="https://kit.fontawesome.com/a692e1c39f.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+
+<body>
+    <div class="container main-con d-flex">
+        <!-- Audio -->
+        <audio id="win_1_audio" src="assets/media/win_1.mp3"></audio>
+        <audio id="win_2_audio" src="assets/media/win_2.mp3"></audio>
+        <audio id="loose_audio" src="assets/media/loose.mp3"></audio>
+        <audio id="draw_audio" src="assets/media/draw.wav"></audio>
+        <audio id="click_1_audio" src="assets/media/click_1.mp3"></audio>
+        <audio id="click_2_audio" src="assets/media/click_2.mp3"></audio>
+        <audio id="new_game_audio" src="assets/media/new_game.mp3"></audio>
+
+
+        <div class="col-md-3 col-12 mode">
+            <!-- Toggle Button -->
+            <h3>Multiplayer Mode 1V1</h3>
+            <!--  
+            <div class="button-box">
+                <div id="btn"></div>
+                <button type="button" id="multiplayer" onclick="multiPlayer()" class="toggle-btn">Multiplayer</button>
+                <button type="button" id="singleplayer" onclick="singlePlayer()" class="toggle-btn"
+                    style="color:white;">Single Player</button>
+            </div>
+        -->
+            <!-- Score -->
+            <div class="scorecard align-items-center">
+                <hr>
+                <h3 class="text-center">Game Score</h3>
+                <hr>
+                <div class="row mt-2">
+                    <div class="col-8">
+                        <h5 id="pl_x">Player 1 ( X ) :</h5>
+                    </div>
+                    <div class="col-4">
+                        <h5 id="point_x">--</h5>
+                    </div>
+                </div>
+                <div class="row mt-2">
+                    <div class="col-8">
+                        <h5 id="pl_o">Player 2 ( O ) :</h5>
+                    </div>
+                    <div class="col-4">
+                        <h5 id="point_o">--</h5>
+                    </div>
+                </div>
+                <hr>
+                <div class="row mt-5 pt-3">
+                    <div class="col-6 game_btn">
+                        <button onclick="resetMode()">Reset Mode</button>
+                    </div>
+                    <div class="col-6 game_btn">
+                        <button onclick="newGame()">New Game</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="matrix" class="col-md-6 col-12 matrix">
+            <div class="row cube-container">
+                <span class="col-4 cube" id="0"></span>
+                <span class="col-4 cube" id="1"></span>
+                <span class="col-4 cube" id="2"></span>
+            </div>
+            <div class="row cube-container">
+                <span class="col-4 cube" id="3"></span>
+                <span class="col-4 cube" id="4"></span>
+                <span class="col-4 cube" id="5"></span>
+            </div>
+            <div class="row cube-container">
+                <span class="col-4 cube" id="6"></span>
+                <span class="col-4 cube" id="7"></span>
+                <span class="col-4 cube" id="8"></span>
+            </div>
+        </div>
+        <div class="col-md-3 col-12 result">
+            <h6>Click on the block to play your move</h6><br>
+            <h5 class="turn_section">Who's Turn :
+                <div class="turn-box">
+                    <div id="turn_togg"></div>
+                    <p id="turn_x"><i class="fa-solid fa-xmark"></i></p>
+                    <p id="turn_o" style="color:white;"><i class="fa-solid fa-o"></i></p>
+                </div>
+            </h5>
+            <hr>
+            <h1 id="winner">Result : --</h1>
+            <div class="cheer_gif">
+                <img id="win_p1" src="assets/media/dance_1.gif">
+                <img id="win_p2" src="assets/media/dance_2.gif">
+                <img id="draw" src="assets/media/draw_gif.gif">
+                <img id="loose" src="assets/media/loose_gif.gif">
+            </div>
+        </div>
+    </div>
+
+    <script src="./assets/js/bootstrap.bundle.min.js"></script>
+    <script src="./assets/js/aos.js"></script>
+    <script src="./assets/js/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+</body>
+
+</html>
