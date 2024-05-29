@@ -1,0 +1,327 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,500;1,500&display=swap');
+
+:root{
+    --cube-width:150px;
+    --mark-size:calc(var(--cube-width)*.9);
+    --cube-color:radial-gradient(circle, rgba(255, 255, 255, 0.15), rgba(29, 29, 29, 0.465));
+    color: #a6a6a6;
+
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    background-color: black;
+    color: #a6a6a6;
+    
+    justify-content: center;
+    align-items: center;
+}
+
+
+#title {
+    font-family: "Josefin Sans", sans-serif;
+    font-size: 30px;
+    color: white;
+    text-decoration: none;
+}
+
+.main-con {
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    width: 100%;
+    display: flex;
+    flex-flow: row nowrap;
+    margin: 25px 20px 0px 85px;
+    align-content: center;
+}
+
+
+/* Mode */
+
+.mode {
+    width: fit-content;
+    place-content: center;
+    text-align: center;
+    position: relative;
+    margin: 3%;
+    padding:10px;
+}
+
+.button-box {
+    width: 300px;
+    margin: 25px auto 10px 0;
+    position: relative;
+    border-radius: 30px;
+    border: 1px solid white;
+}
+
+.toggle-btn {
+    padding: 15px 10px;
+    cursor: pointer;
+    background: transparent;
+    border: 0;
+    outline: none;
+    text-align: center;
+    position: relative;
+    font-size: 16px;
+    color: black;
+    font-weight: bolder;
+}
+
+.toggle-btn:last-child {
+    padding-left: 35px;
+}
+
+#btn {
+    top: 0;
+    left: 0;
+    position: absolute;
+    width: 158px;
+    height: 100%;
+    background: linear-gradient(to right, chartreuse, aqua);
+    transition: 0.2s;
+    border-radius: 30px;
+    outline: 1px solid black;
+}
+
+.scorecard{
+    margin-top: 70px;
+    text-align: left;
+}
+
+.game_btn button{
+    background: linear-gradient(to right, chartreuse, aqua);
+    border-radius: 30px;
+    font-size: 15px;
+    font-weight: bolder;
+    padding: 10.5px 20px;
+    text-align: center;
+    outline: none;
+    border: 1px solid black;
+    cursor: pointer;
+}
+
+.game_btn button:hover{
+    box-shadow: 0 0 8px 3px rgba(255, 255, 255, 0.422);
+}
+
+
+/* Matrix */
+
+.matrix{
+    align-content: center;
+    text-align: center;
+    width: fit-content;
+    margin: 3%;
+}
+
+.cube {
+    width: var(--cube-width);
+    height: 150px;
+    background: var(--cube-color);
+    box-shadow: 0 0 10px 0.5px rgba(255, 255, 255, 0.47);
+    border: none;
+    border-radius: 15px;
+    margin: 8px;
+    color: white;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.cube:hover {
+    z-index: 1;
+    box-shadow: 0 0 8px 3px rgb(255, 255, 255);
+}
+
+.cube.x , .cube.circle{
+    cursor: not-allowed;
+}
+
+
+/* X , O and its effects */
+
+.cube.x::after , .cube.x::before{
+    background-color: aqua;
+    box-shadow: 0 0 10px 0.5px rgba(255, 255, 255, 0.47);
+}
+
+.cube.circle::before, .cube.circle::after{
+    background-color:chartreuse;
+    box-shadow: 0 0 10px 0.5px rgba(255, 255, 255, 0.47);
+}
+
+
+
+.matrix.x .cube:not(.x):not(.circle):hover::after , 
+.matrix.x .cube:not(.x):not(.circle):hover::before,
+.matrix.circle .cube:not(.x):not(.circle):hover::after , 
+.matrix.circle .cube:not(.x):not(.circle):hover::before
+{
+    background-color: #373737;
+}
+
+.cube.x::before, .cube.x::after,
+.matrix.x .cube:not(.x):not(.circle):hover::after , 
+.matrix.x .cube:not(.x):not(.circle):hover::before{
+
+    content: '';
+    position: absolute;
+    width: calc(var(--mark-size)*.15);
+    height: calc(var(--mark-size)*.9);
+    border-radius: 10px;
+}
+
+.cube.x::before,.matrix.x .cube:not(.x):not(.circle):hover::before{
+    transform: rotate(45deg);
+}
+
+.cube.x::after , .matrix.x .cube:not(.x):not(.circle):hover::after{
+    transform: rotate(-45deg);
+}
+
+
+.cube.circle::before, .cube.circle::after,
+.matrix.circle .cube:not(.x):not(.circle):hover::after , 
+.matrix.circle .cube:not(.x):not(.circle):hover::before{
+
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+}
+
+.cube.circle::before , 
+.matrix.circle .cube:not(.x):not(.circle):hover::before{
+    width: calc(var(--mark-size)*.85);
+    height: calc(var(--mark-size)*.85);
+}
+
+.cube.circle::after , 
+.matrix.circle .cube:not(.x):not(.circle):hover::after{
+    width: calc(var(--mark-size)*.60);
+    height: calc(var(--mark-size)*.60);
+    background-color: rgb(34, 34, 34);
+}
+
+
+.matrix.circle .cube:not(.x):not(.circle):hover::after{
+    width: calc(var(--mark-size)*.60);
+    height: calc(var(--mark-size)*.60);
+    background-color: #171717;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Resut */
+
+.result {
+    align-content: center;
+    text-align: center;
+    width: fit-content;
+    margin: 2.5%;
+}
+
+.turn_section{
+    display: flex;
+    align-items: center;
+    align-content: center;
+    margin-bottom: 30px;
+}
+
+.turn-box {
+    width: 150px;
+    height: 50px;
+    margin-left: 15px;
+    position: relative;
+    border-radius: 30px;
+    border: 1px solid white;
+    display:flex;
+    justify-content: center;
+}
+
+#turn_x, #turn_o {
+    padding: 15px 10px;
+    cursor: pointer;
+    background: transparent;
+    border: 0;
+    outline: none;
+    text-align: center;
+    position: relative;
+    font-size: 20px;
+    color: black;
+    font-weight: bolder;
+    width: 100px;
+    padding: 10px 15px;
+}
+
+#turn_togg {
+    top: 0;
+    left: 0;
+    position: absolute;
+    width: 75px;
+    height: 100%;
+    background: #00ffff;
+    transition: 0.2s;
+    border-radius: 30px;
+    outline: 1px solid black;
+}
+
+#winner {
+    color:#a6a6a6;
+    font-weight: bolder;
+    margin-top: 50px;
+    font-size: 29px;
+}
+
+.cheer_gif{
+    width: 270;
+    height: 250px;
+    align-content: center;
+    margin-top: 20px;
+}
+
+.cheer_gif img{
+    width: 0;
+    transition: 1s ease-in-out;
+}
+
+@media (max-width:1000px){
+    .main-con{
+        margin: 20px 10px;
+        flex-direction: column;
+        width: fit-content;
+        justify-content: space-around;
+    }
+
+    .mode,.matrix,.result{
+        margin: 50px auto;
+    }
+
+    .matrix .cube {
+        width: 80px;
+        height: 80px;
+    }
+
+}
